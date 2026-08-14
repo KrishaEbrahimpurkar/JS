@@ -40,39 +40,62 @@
 
 
 // PRIMITIVE DATA TYPES
-const name = "krisha"; 
-console.log(typeof name);//string
+// const name = "krisha"; 
+// console.log(typeof name);//string
 
-const age = 22;
-console.log(typeof age);//number
+// const age = 22;
+// console.log(typeof age);//number
 
-const isLoggedIn = true;
-console.log(typeof isLoggedIn);//boolean
+// const isLoggedIn = true;
+// console.log(typeof isLoggedIn);//boolean
 
-const myVariable = null;
-console.log (typeof myVariable);//object
+// const myVariable = null;
+// console.log (typeof myVariable);//object
 
-const myName = undefined;
-console.log (typeof myName);//undefined
+// const myName = undefined;
+// console.log (typeof myName);//undefined
 
-const id = Symbol('123')
-console.log(typeof id);//symbol
+// const id = Symbol('123')
+// console.log(typeof id);//symbol
 
-const bigNumber = 123654789987456321n
-console.log(typeof bigNumber);//bigint
+// const bigNumber = 123654789987456321n
+// console.log(typeof bigNumber);//bigint
 
-// NON PRIMITIVE DATA TYPES
-const heroes = ["shaktiman", "naagraj", "doga"];
-console.log(typeof heroes);//object
+// // NON PRIMITIVE DATA TYPES
+// const heroes = ["shaktiman", "naagraj", "doga"];
+// console.log(typeof heroes);//object
 
-let myObj = {
-     name: "krisha",
-     age: 22,
-    }
-console.log(typeof myObj);//object
+// let myObj = {
+//      name: "krisha",
+//      age: 22,
+//     }
+// console.log(typeof myObj);//object
 
-const myFunction =function()
-{
-    console.log("hello world");
-}   
-console.log(typeof myFunction);//function
+// const myFunction =function()
+// {
+//     console.log("hello world");
+// }   
+// console.log(typeof myFunction);//function
+
+//************************************************//
+//Stack Memory(Primitive): always gets a copy
+
+//Heap Memory(Non- Primitive): always gets a reference
+// let myYouTubename = "Krisha_at_yt"; //primitive type
+
+// let anothername = myYouTubename;
+// anothername = "coffeeandme"
+// console.log(myYouTubename);//original name
+// console.log(anothername);//copy changed
+
+let user1 = {
+    email: "user@google.com",
+    upi: "user@upi"
+}
+
+let user2 = user1;
+
+user2.email = "krisha@gmail.com"
+console.log(user1.email);
+console.log(user2.email);
+
