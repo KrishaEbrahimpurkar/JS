@@ -1,0 +1,71 @@
+Javascript Execution Context {}
+1. Global Execution Context
+2. Function Execution Context
+3. Eval Execution Context
+
+1. a. Global Execution Context
+In browser, global context outputs windows
+
+{} -> b. Memory Creation Phase
+   -> c. Execution Phase
+
+let val1 = 10
+let val2 = 5
+function addNum(num1, num2){
+    let total = num1 + num2
+    return total
+} 
+let result1 = addNum(val1, val2)
+let result2 = addNum(10, 2)
+
+STEPS for code Execution
+a. Global Execution/Environment located in "this"
+b. Memory Creation Phase (MCP) 
+    (val1, val2 -> undefined
+    addNum -> definition
+    result1 -> undefined
+    result2 -> undefined)-> cycle 1
+c. Execution Phase 
+    val1 = 10
+    val2 = 5
+    result1 = 15
+    result2 = 12
+        addNum(val1, val2) makes a different Executional Context (new variable environment + execution thread)<- once completed, it gets deleted
+        for addNum Memory Phase and Execution Phase starts again
+            Memory Phase => val1, val2, total -> undefined
+            Execution Phase num1 -> 10
+            num2 -> 5
+            total -> 15 (total will be returned to Global Executional Context)
+        addNum(10, 2) same steps as above 
+
+//********************************CALL STACK********************// 
+Functions give: one(), two(), three()
+
+|           
+|           
+|           
+|           
+|Global Execution| The very first step
+
+When we call one() it enters the stack. After execution it is thrown out of the stack
+|                |
+|                |
+|                | 
+|      one()     |              
+|Global Execution|
+        
+if there is another funtion (two()) in one()
+|                |
+|                |
+|      two()     | 
+|      one()     |              
+|Global Execution|
+
+and if theres another function (three()) in two() which is in one()
+|                |
+|     three()    |
+|      two()     | 
+|      one()     |              
+|Global Execution|
+
+To exit this stack LIFO (Last In First Out) will be used
